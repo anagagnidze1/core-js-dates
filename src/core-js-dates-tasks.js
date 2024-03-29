@@ -210,6 +210,7 @@ function getWeekNumberByDate(date) {
     currentDate.setDate(currentDate.getDate() + 1);
   }
   return weekNumber;
+
 }
 
 /**
@@ -307,8 +308,11 @@ function getWorkSchedule(period, countWorkDays, countOffDays) {
  * Date(2020, 2, 1) => true
  */
 function isLeapYear(date) {
-  const year = date.getFullYear();
-  return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+  const years = date.getFullYear();
+  if (years % 4 === 0 && (years % 100 !== 0 || years % 400 === 0)) {
+    return true;
+  }
+  return false;
 }
 
 module.exports = {
